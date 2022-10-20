@@ -1,25 +1,18 @@
-//1) pegar ID da tag que engloba as imagens
-const gallery = document.getElementById('gallery');
+const gallery = document.getElementById('gallery'); //1) pegar ID da tag que engloba as imagens
 
-//2) função para manipular as imagens a partir de evento CLICK
-const manipuladorClick = (evento) => {
-    //constante recebendo o target do click
-    const img = evento.target;
-    //condição para verificar se a tag que foi clicada é IMG
-    if(img.tagName === 'IMG') {
-        //constante recebendo o pai da tag IMG (vai ser uma div no caso)
-        const div = img.parentElement;
-        //atribuindo uma classe CSS para aquela DIV (pai da img)
-        div.className = 'imagem imagem--visivel';
+const manipuladorClick = (evento) => { //2) função para manipular as imagens a partir de evento CLICK
+    const img = evento.target; //constante recebendo o target do click
+
+    //aparecer a descricao
+    if(img.tagName === 'IMG') { //condição para verificar se a tag que foi clicada é IMG
+        const div = img.parentElement; //constante recebendo o pai da tag IMG (vai ser uma div no caso)
+        div.className = 'imagem imagem--visivel'; //atribuindo uma classe CSS para aquela DIV (pai da img)
     }
-    //conficação para verificar se a tag clicada é a descrição (tag SPAN)
-    if(img.tagName === 'SPAN') {
-        //constante recebendo o pai da tag span (tag img no caso)
-        const div = img.parentElement;
-        //atrindo a classe css 'imagem' para aquela tag pai
-        div.className = 'imagem';
+    
+    //sumir a descricao
+    if(img.tagName === 'SPAN') { //condição para verificar se a tag clicada é a descrição (tag SPAN)
+        const div = img.parentElement; //constante recebendo o pai da tag span (tag img no caso)
+        div.className = 'imagem'; //atrindo a classe css 'imagem' para aquela tag pai
     }
 }
-
-//eventListener para o evento de click na imagem
-gallery.addEventListener('click', manipuladorClick);
+gallery.addEventListener('click', manipuladorClick); //eventListener para o evento de click na imagem
